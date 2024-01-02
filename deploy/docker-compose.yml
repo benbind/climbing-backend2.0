@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./deploy/Dockerfile
+      target: prod
+    image: climbing_backend:${CLIMBING_BACKEND_VERSION:-latest}
+    restart: always
+    env_file:
+    - .env
+    environment:
+      CLIMBING_BACKEND_HOST: 0.0.0.0
+      CLIMBING_BACKEND_DB_FILE: /db_data/db.sqlite3
+    volumes:
+    - climbing_backend-db-data:/db_data/
+
+
+
+volumes:
+  climbing_backend-db-data:
+    name: climbing_backend-db-data
