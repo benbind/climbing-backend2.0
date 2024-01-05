@@ -72,6 +72,8 @@ ignore =
   WPS473,
   ; too many no-cover comments.
   WPS403,
+  ; missing docstring
+  D103, D101, WPS301, C812, D102
 
 per-file-ignores =
   ; all tests
